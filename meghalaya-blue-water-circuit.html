@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meghalaya Turquoise Water Circuit — 8-Day Family Expedition</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <!-- Reusable Travel Spoke Modular Stylesheets -->
+  <link rel="stylesheet" href="assets/css/travel-base.css">
+  <link rel="stylesheet" href="assets/css/itinerary-components.css">
+  <link rel="stylesheet" href="assets/css/explorer-atlas.css">
   <style>
     :root {
       --primary: #047857;
@@ -1415,6 +1420,9 @@
   <!-- Top Sticky Navigation -->
   <header class="top-nav">
     <div class="nav-brand">
+      <a href="index.html" class="brand-icon-link" title="Shashikant Prasad Travel">
+        <img src="favicon.svg" alt="SP Camera" class="brand-camera-icon">
+      </a>
       <a href="index.html" style="color: #6ee7b7; text-decoration: none; display: flex; align-items: center; gap: 6px; font-weight: 700;">
         <span>&larr; Travel Directory</span>
       </a>
@@ -2892,6 +2900,7 @@
     </div>
   </div>
 
+  <script src="assets/js/travel-core.js"></script>
   <script>
     // Gallery Image Database for Full Carousel Navigation
     const galleryItems = [
@@ -2913,6 +2922,10 @@
       { id: 'khadum_falls', src: 'images/khadum_falls.jpg', caption: 'Khadum / Chympe Falls — Deep jungle cascade requiring 1,200 steep mud steps (extreme trek)' },
       { id: 'pelga_falls', src: 'images/pelga_falls.jpg', caption: 'Pelga Falls (Garo Hills) — Rushing river waterfall and bamboo footbridge near Tura in Western Meghalaya' }
     ];
+
+    if (window.initTravelGallery) {
+      window.initTravelGallery(galleryItems);
+    }
 
     let currentLightboxIndex = 0;
 
