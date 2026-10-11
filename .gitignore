@@ -1,3 +1,8 @@
 .DS_Store
 *.log
 .env
+
+# Photos and videos never go to Git; uploaded straight to Hostinger
+/images/
+*.mp4
+*.mov

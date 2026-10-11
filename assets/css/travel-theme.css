@@ -1,0 +1,71 @@
+/**
+ * Shashikant Prasad Platform — Travel Spoke Central Theme
+ * travel-theme.css
+ *
+ * ONE place for fonts, color modes, and brand tokens used by every travel
+ * page. Pages must not define their own fonts or brand colors.
+ * Token names follow the platform contract (knowledge-vault/design_system.md
+ * section 5) so every spoke stays visually consistent.
+ *
+ * Mode: set data-theme="dark" or data-theme="light" on <html>. All pages of
+ * the spoke use the same mode. Default token values are dark. color-scheme
+ * is only applied when data-theme is set, so linking this file changes
+ * nothing visually until a page opts in.
+ *
+ * STATUS: defined and linked, not yet consumed by page styles (planned
+ * migration). FONT REVIEW PENDING: families below are the platform brand pair
+ * as a placeholder until the user's font review is complete.
+ * Last updated: 2026-10-11
+ */
+
+:root,
+html[data-theme="dark"] {
+  /* Font families (review pending; change here only) */
+  --font-family-heading: 'Cinzel', Georgia, serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Surfaces and text (dark: Onyx) */
+  --color-bg: #07090e;
+  --color-surface: rgba(15, 23, 42, 0.4);
+  --color-surface-strong: rgba(2, 6, 23, 0.8);
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* Brand */
+  --color-brand-primary: #10b981;
+  --color-brand-accent: #f59e0b;
+  --color-brand-info: #3b82f6;
+
+  /* Shape and elevation */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-strong: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+
+  --color-brand-primary: #047857;
+  --color-brand-accent: #d97706;
+  --color-brand-info: #0284c7;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.1);
+}

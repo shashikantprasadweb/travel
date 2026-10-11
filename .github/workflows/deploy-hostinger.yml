@@ -1,4 +1,4 @@
-name: Deploy Travel Spoke & Hub to Hostinger
+name: Deploy Travel Spoke to Hostinger
 
 on:
   push:
@@ -21,12 +21,10 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "target_dir=travel/" >> $GITHUB_OUTPUT
-            echo "state_file=.ftp-deploy-sync-travel-live.json" >> $GITHUB_OUTPUT
-            echo "hub_dir=public_html/" >> $GITHUB_OUTPUT
+            echo "state_file=.ftp-deploy-sync-travel-live-v2.json" >> $GITHUB_OUTPUT
           else
             echo "target_dir=staging/travel/" >> $GITHUB_OUTPUT
-            echo "state_file=.ftp-deploy-sync-travel-staging.json" >> $GITHUB_OUTPUT
-            echo "hub_dir=staging/" >> $GITHUB_OUTPUT
+            echo "state_file=.ftp-deploy-sync-travel-staging-v2.json" >> $GITHUB_OUTPUT
           fi
 
       - name: Sync Travel Spoke to Hostinger FTPS
@@ -44,17 +42,3 @@ jobs:
             **/.git*/**
             .gitignore
             README.md
-            hub/**
-
-      - name: Sync Main Hub & Favicon to Staging Root
-        if: github.ref == 'refs/heads/staging'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          security: loose
-          local-dir: hub/
-          server-dir: staging/
-          state-name: .ftp-deploy-sync-hub-staging.json
