@@ -1,0 +1,42 @@
+name: Deploy Travel Spoke to Hostinger
+
+on:
+  push:
+    branches:
+      - staging
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Hostinger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Determine Target Directory
+        id: env-target
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "target_dir=public_html/travel/" >> $GITHUB_OUTPUT
+            echo "state_file=.ftp-deploy-sync-travel-live.json" >> $GITHUB_OUTPUT
+          else
+            echo "target_dir=public_html/staging/travel/" >> $GITHUB_OUTPUT
+            echo "state_file=.ftp-deploy-sync-travel-staging.json" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sync Files to Hostinger FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ steps.env-target.outputs.target_dir }}
+          state-name: ${{ steps.env-target.outputs.state_file }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .gitignore
+            README.md
