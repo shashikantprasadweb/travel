@@ -20,10 +20,10 @@ jobs:
         id: env-target
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "target_dir=public_html/travel/" >> $GITHUB_OUTPUT
+            echo "target_dir=travel/" >> $GITHUB_OUTPUT
             echo "state_file=.ftp-deploy-sync-travel-live.json" >> $GITHUB_OUTPUT
           else
-            echo "target_dir=public_html/staging/travel/" >> $GITHUB_OUTPUT
+            echo "target_dir=staging/travel/" >> $GITHUB_OUTPUT
             echo "state_file=.ftp-deploy-sync-travel-staging.json" >> $GITHUB_OUTPUT
           fi
 
