@@ -27,12 +27,14 @@ jobs:
             echo "state_file=.ftp-deploy-sync-travel-staging.json" >> $GITHUB_OUTPUT
           fi
 
-      - name: Sync Files to Hostinger FTP
+      - name: Sync Files to Hostinger FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          security: loose
           server-dir: ${{ steps.env-target.outputs.target_dir }}
           state-name: ${{ steps.env-target.outputs.state_file }}
           exclude: |
