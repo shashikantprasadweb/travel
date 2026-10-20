@@ -1710,7 +1710,68 @@
     .calc-breakdown-item strong {
       color: #ffffff;
     }
-</style>
+
+    /* Granular Timeline Step List */
+    .timeline-steps-box {
+      background: #f8fafc;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin: 12px 0 16px 0;
+    }
+    .timeline-steps-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .timeline-step-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 12px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--gray-200);
+    }
+    .timeline-step-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    @media (max-width: 640px) {
+      .timeline-step-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+    }
+    .step-time-badge {
+      font-weight: 700;
+      color: var(--gray-800);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .step-time-badge.shoot-badge {
+      color: #1d4ed8;
+    }
+    .step-time-badge.solar-badge {
+      color: #b45309;
+    }
+    .step-text {
+      color: var(--dark);
+    }
+    .step-text strong {
+      color: var(--dark);
+    }
+    .itinerary-persona-container {
+      display: block;
+    }
+    </style>
 </head>
 <body>
 
@@ -1806,731 +1867,1068 @@
     </section>
 
     <!-- Itinerary Heading -->
+        <!-- Itinerary Heading -->
     <div class="circuit-heading" id="itinerary">
       <div>
-        <h2>Day-by-Day Expedition Itinerary</h2>
-        <p>Step-by-step route milestones, scenic highlights, family stays, and pure-veg North Indian dining</p>
+        <span class="section-tag">Interactive Expedition Planner</span>
+        <h2>Select Your Travel Style & Route</h2>
+        <p>Switch between 4 curated variations of this 8-day expedition tailored for your exact group and goals:</p>
       </div>
     </div>
 
-        <!-- Day 1 -->
-    <article class="day-card" id="day-1">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 1</span>
-          <span class="day-name">Delhi NCR Departure to Umiam Lake & Shillong</span>
-        </div>
-        <span class="day-meta-tag">Saturday, Nov 28, 2026</span>
+    <!-- Expedition Persona & Style Selector -->
+    <div class="persona-selector-container">
+      <div class="persona-tabs-grid">
+        <button class="persona-tab-btn active" id="btn-persona-photo" onclick="setExpeditionPersona('photo')">
+          <div class="persona-tab-icon">📷</div>
+          <div class="persona-tab-info">
+            <span class="persona-tab-name">Photography & Drone Master</span>
+            <span class="persona-tab-sub">Solar windows, 2.5h shoot blocks & water clarity</span>
+          </div>
+        </button>
+        <button class="persona-tab-btn" id="btn-persona-family" onclick="setExpeditionPersona('family')">
+          <div class="persona-tab-icon">👨‍👩‍👧</div>
+          <div class="persona-tab-info">
+            <span class="persona-tab-name">Relaxed Family Leisure</span>
+            <span class="persona-tab-sub">Flat paved walks, zero stairs & pure-veg dining</span>
+          </div>
+        </button>
+        <button class="persona-tab-btn" id="btn-persona-trekker" onclick="setExpeditionPersona('trekker')">
+          <div class="persona-tab-icon">🥾</div>
+          <div class="persona-tab-info">
+            <span class="persona-tab-name">Active Adventure & Trekker</span>
+            <span class="persona-tab-sub">3,500-step Double Decker root bridge & wet caves</span>
+          </div>
+        </button>
+        <button class="persona-tab-btn" id="btn-persona-budget" onclick="setExpeditionPersona('budget')">
+          <div class="persona-tab-icon">🎒</div>
+          <div class="persona-tab-info">
+            <span class="persona-tab-name">Smart Budget & Backpacker</span>
+            <span class="persona-tab-sub">Shared sumos, local homestays & low-cost transit</span>
+          </div>
+        </button>
       </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">05:30 AM • Departure Leg</span>
-            <h4 class="leg-title">Delhi NCR Departure → Delhi Airport (T3) → Guwahati</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 1h 00m to DEL T3</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Flight:</strong> 2h 25m Direct</span>
-              <span class="metric-pill solar-pill">✈️ <strong>Flight DEL 07:20 → GAU 09:45</strong></span>
-            </div>
-            <p class="leg-desc">
-              Pre-booked cab from home to T3. Direct morning flight lands at Guwahati Airport (GAU) at 09:45 AM. Your dedicated driver with Innova Crysta / Ertiga SUV meets your family at terminal arrivals.
-            </p>
-          </div>
 
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • Scenic Mountain Climb</span>
-            <h4 class="leg-title">Smooth 4-Lane NH6 Highway & Sunset at Umiam Lake</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 2h 30m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 00m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 03:30 PM – 05:15 PM (Golden Hour)</span>
-            </div>
-            <p class="leg-desc">
-              Ascend the well-paved 4-lane highway into the Khasi Hills. Arrive at Umiam Lake (Barapani) during the golden hour for sweeping water reflections, aerial drone wide-angles, and steaming ginger chai.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 1 Stay: Shillong / Umiam Lake Base</strong>
-                <span class="hotel-stay-pill">1 Night</span>
-              </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Kaizun Bed & Breakfast</strong> (~₹2,600/nt) — Clean family suites, pine residential area, geyser & heater</span>
-                </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, elevator, plush triple bed, electric heater, parking</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Hotel Windermere Resort</strong> (~₹6,200/nt) — Pine ridge garden retreat, large wooden rooms</span>
-                </div>
-              </div>
-            </div>
-            <div class="pro-tip-card">
-              <strong>💡 Driver Coordination:</strong> Dedicated vehicle & driver remains with your family from airport pickup through final drop.
-            </div>
-            <div class="strenuous-option-card">
-              <div class="strenuous-header">
-                <span class="strenuous-pill">⚡ Active Trekker Alternative</span>
-                <span class="strenuous-time">02:30 PM – 04:30 PM (2-Hr Window)</span>
-              </div>
-              <h5 class="strenuous-title">Umiam Watersports Island Kayaking & Shoreline Scramble</h5>
-              <p class="strenuous-desc">Adventurous travelers can rent kayaks to cross to the isolated island pine ridge or scramble along the rugged eastern shoreline boulders.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/umiam_lake.jpg', 'Umiam Lake (Barapani) — Vast azure reservoir framed by forested Khasi pine hills at golden hour')">
-            <img src="images/umiam_lake.jpg" alt="Umiam Lake Barapani">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Golden Hour Reservoir</span>
-              <strong>Umiam Lake (Barapani)</strong>
-              Vast azure reservoir framed by forested Khasi pine hills at golden hour
-            </div>
-          </div>
-          <div class="photo-container" onclick="openLightbox('images/markham_valley.jpg', 'Gentle Highland Ridges — Pine meadows welcoming travelers along the highway descent')">
-            <img src="images/markham_valley.jpg" alt="Gentle Highland Ridges">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Scenic Highway Descent</span>
-              <strong>Gentle Highland Ridges</strong>
-              Pine meadows welcoming travelers along the highway descent
-            </div>
-          </div>
-        </div>
+      <!-- Persona Dynamic Context Callout Banner -->
+      <div class="persona-banner" id="personaBanner">
+        <strong>📷 Active View: Photography & Drone Cinematography Expedition.</strong> Engineered strictly around solar elevation physics: high overhead sun for water transparency at Dawki (10:30–13:15), dawn cloud ocean at Nongjrong (05:45–08:30), 2.5–3.0 hour deep shoot blocks per primary sight, and sensible 3★ family rooms with reliable geysers and heaters.
       </div>
-    </article>
+    </div>
 
-    <!-- Day 2 -->
-    <article class="day-card" id="day-2">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 2</span>
-          <span class="day-name">Laitlum Grand Canyons & Scenic Descent to Dawki River</span>
+
+    <!-- VIEW 1: PHOTOGRAPHY & DRONE EXPEDITION -->
+    <div id="itinerary-view-photo" class="itinerary-persona-container">
+      
+      <!-- Day 1 -->
+      <article class="day-card" id="photo-day-1">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 1</span>
+            <span class="day-name">Arrival, Highland Highway & Sunset at Umiam Lake</span>
+          </div>
+          <span class="day-meta-tag">Saturday, Nov 28, 2026</span>
         </div>
-        <span class="day-meta-tag">Sunday, Nov 29, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">Morning • Edge-of-the-World Ridge</span>
-            <h4 class="leg-title">Laitlum Grand Canyons (5,400 ft Canyon Overlook)</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 45m from Shillong</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 45m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 09:15 AM – 12:00 PM (Crisp Morning Light)</span>
-            </div>
-            <p class="leg-desc">
-              Morning sun illuminates the eastern face of the 3,000-ft Rasong gorge. Crisp aerial drone sweep along the cliff rim with zero wind turbulence. Flat walking for family on the grassy meadow.
-            </p>
-          </div>
-
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • Valley Descent</span>
-            <h4 class="leg-title">Scenic Highway Descent to Shnongpdeng River Beach</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 2h 15m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 1h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 03:45 PM – 05:15 PM (Late Afternoon Canyon Light)</span>
-            </div>
-            <p class="leg-desc">
-              Descend through rolling Jaintia grasslands to the Umngot River gorge. Check into your riverside cottage. Scout camera angles along the white pebble beach and shoot low-altitude drone b-roll of wooden boats.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 2 Stay: Dawki / Shnongpdeng River Base</strong>
-                <span class="hotel-stay-pill">Night 1 of 2</span>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 05:30 – 06:30 AM</span>
+                <span class="step-text"><strong>Drive:</strong> Pre-booked home cab to Delhi Airport T3 (1 hr).</span>
               </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Marvel's Homestay</strong> (~₹2,400/nt) — Spotless riverside rooms, attached western bath, geyser</span>
-                </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>Betelnut Resort</strong> (~₹3,600/nt) — Solid stone cottage, private river balcony, hot geyser, parking</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Enchanting Dawki Resort</strong> (~₹4,800/nt) — Elevated cliff cottages with panoramic river gorge view</span>
-                </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">✈️ 07:20 – 09:45 AM</span>
+                <span class="step-text"><strong>Flight DEL ⇄ GAU:</strong> Direct morning flight lands at Guwahati Airport (2h 25m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 10:15 – 12:45 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Meet driver with dedicated Innova/Ertiga; ascend 4-lane NH6 highway to Umiam Lake (~2h 30m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🥗 12:45 – 01:45 PM</span>
+                <span class="step-text"><strong>Lunch:</strong> Highway meal / packed lunch en route.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 03:00 – 05:15 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 15m • Umiam Lake (Barapani):</strong> Golden hour water reflections and aerial drone wide-angles across pine ridges.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>03:30 PM – 05:15 PM (Golden Hour Sunset):</strong> Sun dips behind western pine hills; water reflects amber hues.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 05:30 – 06:15 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Drive from lake into Shillong city (45 mins).</span>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Zero Stair Fatigue:</strong> Laitlum top rim is 100% flat grassy meadow; Shnongpdeng beach has level paved pathway.
-            </div>
-            <div class="strenuous-option-card">
-              <div class="strenuous-header">
-                <span class="strenuous-pill">⚡ Active Trekker Alternative</span>
-                <span class="strenuous-time">01:30 PM – 04:30 PM (3-Hr Window)</span>
-              </div>
-              <h5 class="strenuous-title">Laitlum Canyons: The 3,000-Step Rasong Gorge Descent</h5>
-              <p class="strenuous-desc">High-stamina trekkers can descend the steep, zigzagging stone stairway (1,200+ rocky steps into the 3,000 ft abyss) connecting to isolated Rasong village.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/laitlum_canyons.jpg', 'Laitlum Canyons & Gorge — Endless edge-of-the-world panoramic ridges overlooking deep misty valleys')">
-            <img src="images/laitlum_canyons.jpg" alt="Laitlum Canyons Gorge Panorama">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Edge of the World</span>
-              <strong>Laitlum Canyons & Gorge</strong>
-              Endless panoramic ridges overlooking deep misty green valleys
-            </div>
-          </div>
-          <div class="photo-container" onclick="openLightbox('images/dawki.jpg', 'Umngot River (Dawki) — Crystal-clear transparent waters where boats appear to float in air')">
-            <img src="images/dawki.jpg" alt="Transparent Umngot River Dawki">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Glass Water Boating</span>
-              <strong>Umngot River (Dawki)</strong>
-              Crystal-clear transparent waters where boats appear to float in air
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Day 3 -->
-    <article class="day-card vacation" id="day-3">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 3</span>
-          <span class="day-name">Peak Overhead Sun Glass Boating & Krang Suri Turquoise Pool</span>
-        </div>
-        <span class="day-meta-tag">Monday, Nov 30, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">Midday • Peak Optical Transparency</span>
-            <h4 class="leg-title">Umngot River (Dawki) Private Glass Wooden Boat Shoot</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 0m (On-Site)</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 45m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 10:30 AM – 01:15 PM (Direct Overhead Sun & CPL)</span>
-            </div>
-            <p class="leg-desc">
-              Sun is directly overhead, eliminating surface reflection and illuminating the riverbed 15 ft deep. Private wooden boat ride: use your CPL filter to capture the iconic "floating boat" effect with visible dark shadow on river pebbles. Drone captures aerial fly-throughs along the gorge.
-            </p>
-          </div>
-
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • Vibrant Turquoise Basin</span>
-            <h4 class="leg-title">Krang Suri Waterfall & Natural Pool Swim</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 40m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 02:00 PM – 04:30 PM (Sunlit Turquoise Basin)</span>
-            </div>
-            <p class="leg-desc">
-              Drive 40 mins to Krang Suri. Descend a gentle 15-minute paved stone path to India's bluest natural swimming pool. Drone flies directly above the wide curtain cascade; family swimming with lifejackets supervised by wardens.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 3 Stay: Dawki / Shnongpdeng River Base</strong>
-                <span class="hotel-stay-pill">Night 2 of 2</span>
-              </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Marvel's Homestay</strong> (~₹2,400/nt) — Peaceful riverfront homestay</span>
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 1 Stay: Shillong / Umiam Lake Base</strong>
+                  <span class="hotel-stay-pill">1 Night</span>
                 </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>Betelnut Resort</strong> (~₹3,600/nt) — Solid cottage with private balcony</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Enchanting Dawki Resort</strong> (~₹4,800/nt) — Elevated river gorge cottage</span>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge gem">💎 Budget Gem</span>
+                    <span class="tier-hotel-name"><strong>Kaizun Bed & Breakfast</strong> (~₹2,600/nt) — Clean family suites, pine residential area, geyser & heater</span>
+                  </div>
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, elevator, plush triple bed, electric heater, parking</span>
+                  </div>
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge mid">✨ Scenic Mid-Range</span>
+                    <span class="tier-hotel-name"><strong>Hotel Windermere Resort</strong> (~₹6,200/nt) — Pine ridge garden retreat, large wooden rooms</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Optical Transparency Secret:</strong> High overhead sunlight between 10:30 AM and 01:15 PM is essential; early morning fog leaves the gorge in shadow.
-            </div>
-            <div class="strenuous-option-card">
-              <div class="strenuous-header">
-                <span class="strenuous-pill">⚡ Active Trekker Alternative</span>
-                <span class="strenuous-time">11:30 AM – 02:00 PM (2.5-Hr Window)</span>
+          </div>
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/umiam_lake.jpg', 'Umiam Lake (Barapani) — Vast azure reservoir framed by forested Khasi pine hills at golden hour')">
+              <img src="images/umiam_lake.jpg" alt="Umiam Lake Barapani">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Golden Hour Reservoir</span>
+                <strong>Umiam Lake (Barapani)</strong>
+                Vast azure reservoir framed by forested Khasi pine hills at golden hour
               </div>
-              <h5 class="strenuous-title">Phe Phe Falls: 2-Tier Sapphire Plunge & Cliff Gorge Descent</h5>
-              <p class="strenuous-desc">Located 20 km from Krang Suri. Requires a kayak crossing, unshaded meadow hike, and steep 250+ unpaved cliff descent down to the two-tiered sapphire basin.</p>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/krang_suri.jpg', 'Krang Suri Waterfall — Wide curtain cascade dropping into India's most vibrant turquoise basin')">
-            <img src="images/krang_suri.jpg" alt="Krang Suri Waterfall">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Natural Sapphire Pool</span>
-              <strong>Krang Suri Waterfall</strong>
-              Wide curtain cascade dropping into India's most vibrant turquoise basin
-            </div>
+      <!-- Day 2 -->
+      <article class="day-card" id="photo-day-2">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 2</span>
+            <span class="day-name">Laitlum Grand Canyons & Scenic Descent to Dawki River</span>
           </div>
-          <div class="photo-container" onclick="openLightbox('images/phe_phe_falls.jpg', 'Phe Phe Falls — Two-tiered plunge cascade plunging into a serene hidden paradise pool')">
-            <img src="images/phe_phe_falls.jpg" alt="Phe Phe Falls Jaintia Hills">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Hidden Jaintia Jewel</span>
-              <strong>Phe Phe Falls Basin</strong>
-              Two-tiered plunge cascade dropping into a serene hidden paradise pool
-            </div>
-          </div>
+          <span class="day-meta-tag">Sunday, Nov 29, 2026</span>
         </div>
-      </div>
-    </article>
-
-    <!-- Day 4 -->
-    <article class="day-card vacation" id="day-4">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 4</span>
-          <span class="day-name">Living Root Bridge & Southern Cliff Cascades of Cherrapunji</span>
-        </div>
-        <span class="day-meta-tag">Tuesday, Dec 1, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">Morning • Bio-Engineering Wonder</span>
-            <h4 class="leg-title">Mawlynnong Village & Riwai Single Living Root Bridge</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 40m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 09:45 AM – 12:15 PM (Soft Diffused Canopy Light)</span>
-            </div>
-            <p class="leg-desc">
-              Soft morning light under the dense banyan tree canopy. Smooth, flat 10-minute stone stroll to the Riwai Living Root Bridge. Shoot intricate aerial root braiding over the crystal-clear forest stream with zero stair fatigue. Clean village walk in Mawlynnong.
-            </p>
-          </div>
-
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • High Plateau Ascent</span>
-            <h4 class="leg-title">Seven Sisters (Nohsngithiang) & Kynrem Falls Golden Hour</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 2h 15m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 1h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 03:30 PM – 05:00 PM (Golden Hour Western Cliffs)</span>
-            </div>
-            <p class="leg-desc">
-              Scenic mountain ascent to Cherrapunji. Roadside stops at Kynrem Falls (3-tier bridge cascade) and Seven Sisters panoramic viewpoint during late afternoon golden light streaming across the Bangladesh plains.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 4 Stay: Cherrapunji / Sohra Base</strong>
-                <span class="hotel-stay-pill">Night 1 of 2</span>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 08:30 – 09:15 AM</span>
+                <span class="step-text"><strong>Start Drive:</strong> Depart Shillong for Laitlum Ridge (45 mins via Smit road).</span>
               </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Coniferous Resort</strong> (~₹3,000/nt) — Clean family triple rooms, heater on request, 5m from Orange Roots</span>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 09:15 – 12:00 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 45m • Laitlum Grand Canyons (5,400 ft):</strong> Drone flights along the 3,000-ft cliff rim overlooking Rasong gorge. Zero walking strain on the grassy rim.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>09:15 AM – 12:00 PM (Crisp Morning Light):</strong> Eastern sun illuminates the gorge face with zero thermal haze.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🥗 12:15 – 01:15 PM</span>
+                <span class="step-text"><strong>Lunch:</strong> Highway meal / packed lunch en route through Jaintia Hills.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 01:15 – 03:30 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Scenic winding mountain descent through Jaintia meadows down to Shnongpdeng (2h 15m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 03:45 – 05:15 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 1h 30m • Shnongpdeng River Beach:</strong> Scout river angles, low-altitude drone b-roll of wooden boats in warm canyon light.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>03:45 PM – 05:15 PM (Late Afternoon Canyon Light):</strong> Soft golden light hits the western gorge cliffs.</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 2 Stay: Dawki / Shnongpdeng River Base</strong>
+                  <span class="hotel-stay-pill">Night 1 of 2</span>
                 </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>San Nael La Resort</strong> (~₹4,200/nt) — Mountain view family suites, hot geysers, multi-cuisine restaurant</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Polo Orchid Resort (Exec Wing)</strong> (~₹7,200/nt) — Canyon cliffside views overlooking the gorge</span>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge gem">💎 Budget Gem</span>
+                    <span class="tier-hotel-name"><strong>Marvel's Homestay</strong> (~₹2,400/nt) — Spotless riverside rooms, attached western bath, geyser</span>
+                  </div>
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>Betelnut Resort</strong> (~₹3,600/nt) — Solid stone cottage, private river balcony, hot geyser, parking</span>
+                  </div>
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge mid">✨ Scenic Mid-Range</span>
+                    <span class="tier-hotel-name"><strong>Enchanting Dawki Resort</strong> (~₹4,800/nt) — Elevated cliff cottages with river gorge views</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Zero-Fatigue Root Bridge:</strong> Riwai delivers the full, authentic Khasi bio-engineering wonder on level ground without 3,500 stairs.
-            </div>
-            <div class="strenuous-option-card">
-              <div class="strenuous-header">
-                <span class="strenuous-pill">⚡ Active Trekker Alternative</span>
-                <span class="strenuous-time">Full-Day Detour • 07:00 AM – 02:00 PM</span>
+          </div>
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/laitlum_canyons.jpg', 'Laitlum Canyons & Gorge — Endless edge-of-the-world panoramic ridges overlooking deep misty valleys')">
+              <img src="images/laitlum_canyons.jpg" alt="Laitlum Canyons Gorge Panorama">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Edge of the World</span>
+                <strong>Laitlum Canyons & Gorge</strong>
+                Endless panoramic ridges overlooking deep misty green valleys
               </div>
-              <h5 class="strenuous-title">Nongriat Double Decker Living Root Bridge (3,500-Step Challenge)</h5>
-              <p class="strenuous-desc">High-endurance hikers can divert to Tyrna village base to descend 3,500 steep concrete stairs (5–6 hrs) down to the Double Decker root bridge and Rainbow Falls pool.</p>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/mawlynnong_bridge.jpg', 'Riwai Single Living Root Bridge — Bio-engineering wonder reached via level 10-minute stroll')">
-            <img src="images/mawlynnong_bridge.jpg" alt="Riwai Living Root Bridge">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Living Root Bridge</span>
-              <strong>Riwai Living Root Bridge</strong>
-              Bio-engineering wonder reached via level 10-minute stroll
-            </div>
+      <!-- Day 3 -->
+      <article class="day-card vacation" id="photo-day-3">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 3</span>
+            <span class="day-name">Direct Overhead Sun Glass Boating & Krang Suri Turquoise Pool</span>
           </div>
-          <div class="photo-container" onclick="openLightbox('images/kynrem_falls.jpg', 'Kynrem Falls Vista — Towering multi-tier waterfall descending through lush valley cliffs')">
-            <img src="images/kynrem_falls.jpg" alt="Kynrem Falls Meghalaya">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Mountain Cascades</span>
-              <strong>Kynrem Falls Vista</strong>
-              Towering multi-tier waterfall descending through lush valley cliffs
-            </div>
-          </div>
+          <span class="day-meta-tag">Monday, Nov 30, 2026</span>
         </div>
-      </div>
-    </article>
-
-    <!-- Day 5 -->
-    <article class="day-card vacation" id="day-5">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 5</span>
-          <span class="day-name">The Grand Plunges: Nohkalikai & Wei Sawdong Amphitheater</span>
-        </div>
-        <span class="day-meta-tag">Wednesday, Dec 2, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">Morning • India’s Tallest Plunge</span>
-            <h4 class="leg-title">Nohkalikai Falls (1,115 ft Plunge) Panoramic Platform</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 20m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 3h 00m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 09:30 AM – 12:30 PM (Crisp Air Before Clouds)</span>
-            </div>
-            <p class="leg-desc">
-              Full 3 hours on the panoramic platform. Tripod setup for ultra-res canyon photography; drone flies out over the gorge to capture the emerald plunge pool and vertical limestone walls before afternoon clouds push up from Bangladesh.
-            </p>
-          </div>
-
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • 3-Tier Emerald Lagunas</span>
-            <h4 class="leg-title">Orange Roots Pure-Veg Feast & Wei Sawdong Upper Viewpoint</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 20m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 02:30 PM – 05:00 PM (Deep Canyon Sun Penetration)</span>
-            </div>
-            <p class="leg-desc">
-              Relaxed pure-veg lunch at Orange Roots (dosas, thalis, hot rotis). Then proceed to Wei Sawdong’s upper viewing platform for breathtaking photography of the 3-tier emerald cascade, followed by gentle stream photography at nearby Mawsawa Falls.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 5 Stay: Cherrapunji / Sohra Base</strong>
-                <span class="hotel-stay-pill">Night 2 of 2</span>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">☕ 08:00 – 10:00 AM</span>
+                <span class="step-text"><strong>Balcony Morning:</strong> Relaxed breakfast on cottage balcony watching river mist clear.</span>
               </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Coniferous Resort</strong> (~₹3,000/nt) — Clean family triple rooms, hot geysers</span>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 10:30 – 01:15 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 45m • Umngot River (Dawki) Glass Boating:</strong> High overhead sun transforms water into optical glass. Private wooden boat ride: use CPL filter to capture "floating boat" effect with crisp shadows on riverbed pebbles 15 ft down. Drone fly-throughs along gorge.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>10:30 AM – 01:15 PM (Direct Overhead Sun — Peak Transparency):</strong> Sun is at zenith; zero surface reflection, maximum penetration.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 01:15 – 02:00 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Drive from Shnongpdeng up to Krang Suri (45 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 02:00 – 04:30 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 30m • Krang Suri Waterfall & Pool:</strong> 15-min gentle paved stone path. Sun illuminates the limestone turquoise basin. Drone wide-angle above curtain waterfall + family swim.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>02:00 PM – 04:30 PM (Sunlit Turquoise Basin):</strong> Direct afternoon sun activates the vibrant blue-green glow.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 04:30 – 05:15 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Return drive to Shnongpdeng riverside (45 mins).</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 3 Stay: Dawki / Shnongpdeng River Base</strong>
+                  <span class="hotel-stay-pill">Night 2 of 2</span>
                 </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>San Nael La Resort</strong> (~₹4,200/nt) — Mountain view family suites, reliable heating</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Polo Orchid Resort (Exec Wing)</strong> (~₹7,200/nt) — Canyon cliffside views</span>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>Betelnut Resort</strong> (~₹3,600/nt) — Solid cottage with private balcony, geyser</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Comfort Guarantee:</strong> Restrict Wei Sawdong to the upper viewpoint; strictly skip the makeshift bamboo ladder descent to protect against steep climbing fatigue.
-            </div>
-          </div>
-        </div>
-
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/nohkalikai_falls.jpg', 'Nohkalikai Falls — India’s tallest plunge waterfall (1,115 ft) into an emerald pool')">
-            <img src="images/nohkalikai_falls.jpg" alt="Nohkalikai Falls">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Giant Plunge</span>
-              <strong>Nohkalikai Falls</strong>
-              India’s tallest plunge waterfall (1,115 ft) into an emerald pool
-            </div>
-          </div>
-          <div class="photo-container" onclick="openLightbox('images/wei_sawdong.jpg', 'Wei Sawdong Falls — Natural three-tiered emerald amphitheater in pristine forest')">
-            <img src="images/wei_sawdong.jpg" alt="Wei Sawdong Falls">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Three-Tier Emerald</span>
-              <strong>Wei Sawdong Cascades</strong>
-              Natural three-tiered emerald amphitheater in pristine forest
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Day 6 -->
-    <article class="day-card" id="day-6">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 6</span>
-          <span class="day-name">Canyon Overlook, Ancient Sacred Forest & Return to Shillong</span>
-        </div>
-        <span class="day-meta-tag">Thursday, Dec 3, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">Morning • V-Shaped Canyon Overlook</span>
-            <h4 class="leg-title">Mawkdok Dympep Valley Viewpoint</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 35m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 1h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 10:15 AM – 11:45 AM (Clear Valley Light)</span>
-            </div>
-            <p class="leg-desc">
-              Scenic highway stop at the dramatic V-shaped Mawkdok Dympep canyon bridge. Zero walking strain—enjoy panoramic views of the forested gorge and launch wide aerial drone sweeps across the canyon cleft.
-            </p>
           </div>
 
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • Ancient Khasi Lore</span>
-            <h4 class="leg-title">Mawphlang Sacred Grove & Drive to Shillong</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 40m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 00m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 12:30 PM – 02:30 PM (Midday Canopy Light)</span>
-            </div>
-            <p class="leg-desc">
-              Easy, flat walk through the mystical, moss-draped ancient Khasi Sacred Forest accompanied by a local tribal storyteller. Smooth 45-minute drive into Shillong city for evening souvenir shopping at Police Bazar.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 6 Stay: Shillong Pine Ridge Base</strong>
-                <span class="hotel-stay-pill">Night 2 of 3</span>
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/krang_suri.jpg', 'Krang Suri Waterfall — Wide curtain cascade dropping into India's most vibrant turquoise basin')">
+              <img src="images/krang_suri.jpg" alt="Krang Suri Waterfall">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Natural Sapphire Pool</span>
+                <strong>Krang Suri Waterfall</strong>
+                Wide curtain cascade dropping into India's most vibrant turquoise basin
               </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Kaizun Bed & Breakfast</strong> (~₹2,600/nt) — Clean family suites</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 4 -->
+      <article class="day-card vacation" id="photo-day-4">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 4</span>
+            <span class="day-name">Living Root Bridge & Southern Cliff Cascades of Cherrapunji</span>
+          </div>
+          <span class="day-meta-tag">Tuesday, Dec 1, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 09:00 – 09:40 AM</span>
+                <span class="step-text"><strong>Start Drive:</strong> Depart Shnongpdeng for Mawlynnong & Riwai (40 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 09:45 – 12:15 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 30m • Riwai Living Root Bridge & Village:</strong> Flat 10-minute stone path under shaded banyan canopy. Capture intricate root braiding and stream reflections. Flower-lined stroll in Mawlynnong.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>09:45 AM – 12:15 PM (Soft Diffused Canopy Light):</strong> Filtered morning sun prevents harsh light blowouts on the dark roots.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🥗 12:15 – 01:15 PM</span>
+                <span class="step-text"><strong>Lunch:</strong> Vegetarian thali lunch in Mawlynnong village.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 01:15 – 03:30 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Winding mountain climb up to the Cherrapunji plateau (2h 15m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 03:30 – 05:00 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 1h 30m • Seven Sisters & Kynrem Falls:</strong> Roadside viewpoint stops. Golden hour light illuminating the limestone cliffs and water streams plunging towards the Bangladesh plains.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>03:30 PM – 05:00 PM (Golden Hour Western Cliffs):</strong> Late afternoon sun hits the 1,000-ft cliff wall directly.</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 4 Stay: Cherrapunji / Sohra Base</strong>
+                  <span class="hotel-stay-pill">Night 1 of 2</span>
                 </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, central heating</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Hotel Windermere Resort</strong> (~₹6,200/nt) — Pine ridge garden retreat</span>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge gem">💎 Budget Gem</span>
+                    <span class="tier-hotel-name"><strong>Coniferous Resort</strong> (~₹3,000/nt) — Clean family triple rooms, heater on request, 5m from Orange Roots</span>
+                  </div>
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>San Nael La Resort</strong> (~₹4,200/nt) — Mountain view family suites, hot geysers, multi-cuisine restaurant</span>
+                  </div>
+                  <div class="hotel-tier-row">
+                    <span class="tier-badge mid">✨ Scenic Mid-Range</span>
+                    <span class="tier-hotel-name"><strong>Polo Orchid Resort (Exec Wing)</strong> (~₹7,200/nt) — Canyon cliffside views overlooking the gorge</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Cave Priority Update:</strong> Mawsmai Cave is deprioritized per instructions to dedicate maximum energy to open canyons and sacred groves.
-            </div>
-            <div class="strenuous-option-card">
-              <div class="strenuous-header">
-                <span class="strenuous-pill">⚡ Active Trekker Alternative</span>
-                <span class="strenuous-time">09:00 AM – 03:00 PM (6-Hr Hike)</span>
+          </div>
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/mawlynnong_bridge.jpg', 'Riwai Single Living Root Bridge — Bio-engineering wonder reached via level 10-minute stroll')">
+              <img src="images/mawlynnong_bridge.jpg" alt="Riwai Living Root Bridge">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Living Root Bridge</span>
+                <strong>Riwai Living Root Bridge</strong>
+                Bio-engineering wonder reached via level 10-minute stroll
               </div>
-              <h5 class="strenuous-title">David Scott Historical 16-km Trail Trek (Mawphlang to Lad Mawphlang)</h5>
-              <p class="strenuous-desc">Historical British-era horse-trail winding along deep river valleys, hanging bridges, and pine forests.</p>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/mawphlang_grove.jpg', 'Mawphlang Sacred Grove — Ancient moss-covered Khasi sacred forest with tribal heritage')">
-            <img src="images/mawphlang_grove.jpg" alt="Mawphlang Sacred Grove">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Ancient Khasi Forest</span>
-              <strong>Mawphlang Sacred Grove</strong>
-              Ancient moss-covered Khasi sacred forest with tribal heritage
-            </div>
+      <!-- Day 5 -->
+      <article class="day-card vacation" id="photo-day-5">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 5</span>
+            <span class="day-name">The Grand Plunges: Nohkalikai & Wei Sawdong Amphitheater</span>
           </div>
-          <div class="photo-container" onclick="openLightbox('images/mawsmai_cave.jpg', 'Mawsmai Limestone Cave — Illuminated limestone pathways with stalactites and marine fossils')">
-            <img src="images/mawsmai_cave.jpg" alt="Mawsmai Cave Stalactites">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Limestone Formations</span>
-              <strong>Mawsmai Cave (Optional)</strong>
-              Illuminated limestone pathways with stalactites and marine fossils
-            </div>
-          </div>
+          <span class="day-meta-tag">Wednesday, Dec 2, 2026</span>
         </div>
-      </div>
-    </article>
-
-    <!-- Day 7 -->
-    <article class="day-card" id="day-7">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 7</span>
-          <span class="day-name">Nongjrong Sea of Clouds Sunrise & Shillong Ridge Leisure</span>
-        </div>
-        <span class="day-meta-tag">Friday, Dec 4, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">04:30 AM • Sunrise Phenomenon</span>
-            <h4 class="leg-title">Nongjrong Valley Sunrise (The "Sea of Clouds")</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 1h 15m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 45m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 05:45 AM – 08:30 AM (Golden Hour Cloud Inversion)</span>
-            </div>
-            <p class="leg-desc">
-              Early departure with your dedicated driver to Nongjrong ridge. Vehicle drives directly to the top viewpoint. Golden morning light breaks over a literal "sea of white clouds" blanketing the deep river valley below with mountain peaks emerging like islands. Unrivaled aerial drone session with zero trekking.
-            </p>
-          </div>
-
-          <div class="leg-card">
-            <span class="leg-time">Afternoon • Mountain Leisure</span>
-            <h4 class="leg-title">Return to Shillong, Ward’s Lake & Cafe Culture</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 15m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 00m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 02:30 PM – 04:30 PM (Soft Afternoon Light)</span>
-            </div>
-            <p class="leg-desc">
-              Return to Shillong by 10:30 AM for hot breakfast. Afternoon stroll through the floral pine pathways of Ward's Lake and enjoying Shillong's warm cafe culture (Dylan's Cafe / ML05). Leisurely evening souvenir shopping at Police Bazar.
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <div class="hotel-card-title-row">
-                <strong>🏨 Night 7 Stay: Shillong Pine Ridge Base</strong>
-                <span class="hotel-stay-pill">Night 3 of 3</span>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 09:00 – 09:20 AM</span>
+                <span class="step-text"><strong>Start Drive:</strong> Drive from hotel to Nohkalikai viewpoint (20 mins).</span>
               </div>
-              <div class="hotel-tiers-list">
-                <div class="hotel-tier-row">
-                  <span class="tier-badge gem">💎 Budget Gem</span>
-                  <span class="tier-hotel-name"><strong>Kaizun Bed & Breakfast</strong> (~₹2,600/nt) — Clean family suites</span>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 09:30 – 12:30 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 3h 00m • Nohkalikai Falls (1,115 ft Plunge):</strong> Panoramic platform setup. Tripod for ultra-res canyon photography; drone flies out over the gorge to capture the emerald plunge pool and vertical limestone walls.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>09:30 AM – 12:30 PM (Crisp Air Before Clouds):</strong> Clear morning window before afternoon thermal convection clouds push up from Bangladesh.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🥗 12:45 – 02:00 PM</span>
+                <span class="step-text"><strong>Lunch:</strong> Orange Roots Pure-Veg Feast (crisp dosas, idlis, dal fry, hot rotis, paneer).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 02:15 – 02:35 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Drive from restaurant to Wei Sawdong (20 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 02:35 – 05:00 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 25m • Wei Sawdong Upper Platform & Mawsawa Stream:</strong> Upper platform viewing of the 3-tier emerald cascade (zero ladder climbing), followed by gentle stream b-roll at Mawsawa Falls.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>02:30 PM – 05:00 PM (Deep Canyon Sun Penetration):</strong> Midday sun reaches down into the steep jungle gorge.</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 5 Stay: Cherrapunji / Sohra Base</strong>
+                  <span class="hotel-stay-pill">Night 2 of 2</span>
                 </div>
-                <div class="hotel-tier-row recommended">
-                  <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
-                  <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, central heating</span>
-                </div>
-                <div class="hotel-tier-row">
-                  <span class="tier-badge mid">✨ Scenic Mid-Range</span>
-                  <span class="tier-hotel-name"><strong>Hotel Windermere Resort</strong> (~₹6,200/nt) — Pine ridge garden retreat</span>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>San Nael La Resort</strong> (~₹4,200/nt) — Mountain view family suites, reliable heating</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="pro-tip-card">
-              <strong>💡 Sunrise Timing:</strong> Dress in warm layers for Nongjrong; reach the ridge by 05:45 AM before sunrise burns off the cloud inversion.
+          </div>
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/nohkalikai_falls.jpg', 'Nohkalikai Falls — India’s tallest plunge waterfall (1,115 ft) into an emerald pool')">
+              <img src="images/nohkalikai_falls.jpg" alt="Nohkalikai Falls">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Giant Plunge</span>
+                <strong>Nohkalikai Falls</strong>
+                India’s tallest plunge waterfall (1,115 ft) into an emerald pool
+              </div>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/wards_lake.jpg', 'Ward’s Lake Shillong — Colonial wooden footbridge, flower gardens, and calm pine waters')">
-            <img src="images/wards_lake.jpg" alt="Ward's Lake Shillong">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Pine Hill Stroll</span>
-              <strong>Ward’s Lake</strong>
-              Colonial wooden footbridge, flower gardens, and calm pine waters
+      <!-- Day 6 -->
+      <article class="day-card" id="photo-day-6">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 6</span>
+            <span class="day-name">Canyon Overlook, Ancient Sacred Forest & Return to Shillong</span>
+          </div>
+          <span class="day-meta-tag">Thursday, Dec 3, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 09:30 – 10:05 AM</span>
+                <span class="step-text"><strong>Start Drive:</strong> Depart Cherrapunji for Mawkdok Dympep canyon bridge (35 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 10:15 – 11:45 AM</span>
+                <span class="step-text"><strong>Shoot Duration: 1h 30m • Mawkdok Dympep Valley Viewpoint:</strong> Dramatic V-shaped canyon overlook at the suspension bridge. Wide aerial drone sweep across the forested gorge. Zero walking strain.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>10:15 AM – 11:45 AM (Clear Valley Light):</strong> Clean sun angles down the canyon cleft.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 11:45 – 12:25 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Drive from Mawkdok to Mawphlang Sacred Forest (40 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 12:30 – 02:30 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 00m • Mawphlang Sacred Grove & Lunch:</strong> Easy flat walk under ancient moss-covered oak trees with local storyteller. Soft filtered canopy light.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>12:30 PM – 02:30 PM (Midday Canopy Light):</strong> Sun penetrates the thick mossy tree canopy.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 02:30 – 03:15 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Smooth drive from Mawphlang into Shillong city (45 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🛍️ 04:00 – 07:00 PM</span>
+                <span class="step-text"><strong>Evening:</strong> Police Bazar shopping for local forest honey, organic turmeric, and cafe culture.</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 6 Stay: Shillong Pine Ridge Base</strong>
+                  <span class="hotel-stay-pill">Night 2 of 3</span>
+                </div>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, central heating</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pro-tip-card">
+                <strong>💡 Scenic Focus:</strong> Bypasses dark caves to dedicate maximum golden daylight to the open V-shaped canyon and the ancient sacred forest.
+              </div>
             </div>
           </div>
-          <div class="photo-container" onclick="openLightbox('images/laitlum_canyons.jpg', 'High Mountain Valleys — Vast undulating Khasi ridges and mist-filled gorges')">
-            <img src="images/laitlum_canyons.jpg" alt="Highland Mountain Valleys">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Cloud Valley Vista</span>
-              <strong>Highland Ridge Valleys</strong>
-              Vast undulating Khasi ridges and mist-filled gorges
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/mawphlang_grove.jpg', 'Mawphlang Sacred Grove — Ancient moss-covered Khasi sacred forest with tribal heritage')">
+              <img src="images/mawphlang_grove.jpg" alt="Mawphlang Sacred Grove">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Ancient Khasi Forest</span>
+                <strong>Mawphlang Sacred Grove</strong>
+                Ancient moss-covered Khasi sacred forest with tribal heritage
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- Day 8 -->
-    <article class="day-card vacation" id="day-8">
-      <div class="day-header-strip">
-        <div class="day-badge-title">
-          <span class="day-number-pill">Day 8</span>
-          <span class="day-name">Umiam Lake Photography, Highway Descent & Flight to Delhi</span>
+      <!-- Day 7 -->
+      <article class="day-card" id="photo-day-7">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 7</span>
+            <span class="day-name">Nongjrong Sea of Clouds Sunrise & Shillong Ridge Leisure</span>
+          </div>
+          <span class="day-meta-tag">Friday, Dec 4, 2026</span>
         </div>
-        <span class="day-meta-tag">Saturday, Dec 5, 2026</span>
-      </div>
-      <div class="day-grid">
-        <div class="day-details">
-          <div class="leg-card">
-            <span class="leg-time">10:30 AM • Lakeside Grandeur</span>
-            <h4 class="leg-title">Umiam Lake (Barapani) Photography, Drone & Lakeside Lunch</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 35m</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Shoot:</strong> 2h 30m</span>
-              <span class="metric-pill solar-pill">☀️ <strong>Solar Window:</strong> 11:15 AM – 01:45 PM (High Sun Azure Water)</span>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 04:30 – 05:45 AM</span>
+                <span class="step-text"><strong>Dawn Drive:</strong> Early morning departure with dedicated driver to Nongjrong ridge (1h 15m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 05:45 – 08:30 AM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 45m • Nongjrong Valley Sunrise (Sea of Clouds):</strong> Car reaches top viewpoint. Golden morning light over a vast ocean of white clouds blanketing the valley below. Unrivaled drone videography with zero hiking.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>05:45 AM – 08:30 AM (Golden Cloud Inversion Peak):</strong> Low-angle morning sun skims across the cloud bed before thermal evaporation.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 08:30 – 09:45 AM</span>
+                <span class="step-text"><strong>Drive:</strong> Return drive to Shillong hotel (1h 15m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">☕ 10:00 – 02:00 PM</span>
+                <span class="step-text"><strong>Rest & Recharge:</strong> Hot breakfast, nap, and relaxed family downtime.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 02:30 – 04:30 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 00m • Ward’s Lake Botanical Gardens:</strong> Wooden footbridges, floral pine walks, followed by hot tea at Dylan’s Cafe.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>02:30 PM – 04:30 PM (Soft Afternoon Light):</strong> Gentle lighting across the calm pine lake.</span>
+              </div>
             </div>
-            <p class="leg-desc">
-              Leisurely breakfast and checkout from Shillong. Arrive at Umiam Lake’s premier viewpoint / Orchid Lake Resort. Dedicate 2.5 hours for peaceful landscape photography, aerial drone sweeping across the turquoise reservoir waters, and a relaxed North Indian lunch overlooking the azure lake and pine ridges.
-            </p>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <div class="hotel-card-title-row">
+                  <strong>🏨 Night 7 Stay: Shillong Pine Ridge Base</strong>
+                  <span class="hotel-stay-pill">Night 3 of 3</span>
+                </div>
+                <div class="hotel-tiers-list">
+                  <div class="hotel-tier-row recommended">
+                    <span class="tier-badge sweet">⭐ 3★ Sweet Spot</span>
+                    <span class="tier-hotel-name"><strong>Hotel Heiga VNS</strong> (~₹4,200/nt) — Modern 3★, central heating</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="leg-card">
-            <span class="leg-time">Afternoon & Evening • Smooth Transit Home</span>
-            <h4 class="leg-title">4-Lane NH6 Descent → Guwahati Airport → Fly to Delhi NCR</h4>
-            <div class="leg-metrics-strip">
-              <span class="metric-pill drive-pill">🚗 <strong>Drive:</strong> 2h 30m (NH6 4-Lane)</span>
-              <span class="metric-pill shoot-pill">⏱️ <strong>Drop:</strong> 19:00 at Terminal</span>
-              <span class="metric-pill solar-pill">✈️ <strong>Flight GAU 21:05 → DEL 23:55</strong></span>
-            </div>
-            <p class="leg-desc">
-              Smooth, relaxed mountain descent along the 4-lane NH6 highway (~2.5 hrs). Arrive at Guwahati Airport belt by 05:00 PM for tea/light dinner. Curbside drop at GAU terminal at 19:00 for your confirmed 21:05 Air India Express direct flight. Lands in Delhi T3 around midnight with pre-booked cab home!
-            </p>
-          </div>
-
-          <div class="info-boxes-row">
-            <div class="hotel-card">
-              <strong>✈️ Confirmed Flights:</strong> Onward DEL 07:20 → GAU 09:45 (Nov 28) | Return GAU 21:05 → DEL 23:55 (Dec 5).
-            </div>
-            <div class="pro-tip-card">
-              <strong>💡 Sunday, Dec 6 (Rest Day):</strong> Full home rest and recharge day to unpack before work and school resume on Monday.
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/wards_lake.jpg', 'Ward’s Lake Shillong — Colonial wooden footbridge, flower gardens, and calm pine waters')">
+              <img src="images/wards_lake.jpg" alt="Ward's Lake Shillong">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Pine Hill Stroll</span>
+                <strong>Ward’s Lake</strong>
+                Colonial wooden footbridge, flower gardens, and calm pine waters
+              </div>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="day-media">
-          <div class="photo-container" onclick="openLightbox('images/umiam_lake.jpg', 'Umiam Lake (Barapani) — Peaceful azure reservoir waters framed by forested Khasi pine hills')">
-            <img src="images/umiam_lake.jpg" alt="Umiam Lake Barapani">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Azure Water Reservoir</span>
-              <strong>Umiam Lake (Barapani)</strong>
-              Peaceful azure reservoir waters framed by forested Khasi pine hills
+      <!-- Day 8 -->
+      <article class="day-card vacation" id="photo-day-8">
+        <div class="day-header-strip">
+          <div class="day-badge-title">
+            <span class="day-number-pill">Day 8</span>
+            <span class="day-name">Umiam Lake Photography, Highway Descent & Flight to Delhi</span>
+          </div>
+          <span class="day-meta-tag">Saturday, Dec 5, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            
+            <div class="timeline-steps-box">
+              <div class="timeline-steps-title">⏱️ Granular Transit & Shoot Timeline</div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 10:30 – 11:05 AM</span>
+                <span class="step-text"><strong>Start Drive:</strong> Relaxed checkout; drive from Shillong to Umiam Lake viewpoint (35 mins).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge shoot-badge">📸 11:15 – 01:45 PM</span>
+                <span class="step-text"><strong>Shoot Duration: 2h 30m • Umiam Lake (Barapani) Drone & Lunch:</strong> Dedicated aerial videography over the azure reservoir waters and pine peninsulas. Relaxed family lunch at Orchid Lake Resort overlooking the water.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge solar-badge">☀️ Solar Window</span>
+                <span class="step-text"><strong>11:15 AM – 01:45 PM (High Sun Azure Water):</strong> Direct sun produces rich Mediterranean blue reservoir tones.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">🚗 02:00 – 04:30 PM</span>
+                <span class="step-text"><strong>Drive:</strong> Smooth 4-lane NH6 highway descent to the Guwahati plains (~2h 30m).</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">☕ 05:00 – 06:45 PM</span>
+                <span class="step-text"><strong>Dinner / Tea:</strong> Early dinner near Guwahati Airport belt.</span>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-time-badge">✈️ 07:00 PM Drop</span>
+                <span class="step-text"><strong>Curbside Drop at GAU Terminal:</strong> Check in for confirmed <strong>21:05 Air India Express direct flight to Delhi (lands 23:55)</strong> with pre-booked cab home.</span>
+              </div>
+            </div>
+
+            <div class="info-boxes-row">
+              <div class="hotel-card">
+                <strong>✈️ Confirmed Flights:</strong> Onward DEL 07:20 → GAU 09:45 (Nov 28) | Return GAU 21:05 → DEL 23:55 (Dec 5).
+              </div>
+              <div class="pro-tip-card">
+                <strong>💡 Sunday, Dec 6 (Rest Day):</strong> Full home rest day to unpack before work and school resume on Monday.
+              </div>
             </div>
           </div>
-          <div class="photo-container" onclick="openLightbox('images/markham_valley.jpg', 'Gentle Highland Ridges — Pine meadows welcoming travelers along the highway descent')">
-            <img src="images/markham_valley.jpg" alt="Gentle Highland Ridges">
-            <div class="photo-zoom-hint">🔍 Click to enlarge</div>
-            <div class="photo-caption">
-              <span class="photo-tag">Scenic Highway Descent</span>
-              <strong>Gentle Highland Ridges</strong>
-              Pine meadows welcoming travelers along the highway descent
+
+          <div class="day-media">
+            <div class="photo-container" onclick="openLightbox('images/umiam_lake.jpg', 'Umiam Lake (Barapani) — Peaceful azure reservoir waters framed by forested Khasi pine hills')">
+              <img src="images/umiam_lake.jpg" alt="Umiam Lake Barapani">
+              <div class="photo-zoom-hint">🔍 Click to enlarge</div>
+              <div class="photo-caption">
+                <span class="photo-tag">Azure Water Reservoir</span>
+                <strong>Umiam Lake (Barapani)</strong>
+                Peaceful azure reservoir waters framed by forested Khasi pine hills
+              </div>
             </div>
           </div>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- VIEW 2: RELAXED FAMILY LEISURE EDITION -->
+    <div id="itinerary-view-family" class="itinerary-persona-container" style="display: none;">
+      
+      <div class="circuit-heading">
+        <div>
+          <h2>👨‍👩‍👧 Relaxed Family Leisure Edition (8 Days)</h2>
+          <p>Engineered for zero physical strain: level paved paths, gentle 09:00 AM starts, scenic viewpoints, and pure-veg dining</p>
         </div>
       </div>
-    </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 1</span><span class="day-name">Smooth Flight, Highway Drive & Umiam Lake Tea</span></div>
+          <span class="day-meta-tag">Saturday, Nov 28, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">✈️ 09:45 AM</span><span class="step-text">Meet driver at Guwahati airport; comfortable Innova SUV transfer.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">☕ 03:30 – 05:00 PM</span><span class="step-text">Sunset tea, easy garden walk at Umiam Lake water sports complex (100% paved).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏨 Evening</span><span class="step-text">Check into Hotel Heiga VNS (spacious heated triple room). Hot North Indian dinner.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 2</span><span class="day-name">Laitlum Canyon Grassy Ridge & Drive to River Homestay</span></div>
+          <span class="day-meta-tag">Sunday, Nov 29, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">⏰ 09:00 AM</span><span class="step-text">Relaxed breakfast; scenic drive to Laitlum canyon meadow.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏞️ 10:00 – 12:00 PM</span><span class="step-text">Flat grassy meadow stroll overlooking the grand gorge (zero stairs).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🚗 01:00 – 03:30 PM</span><span class="step-text">Smooth descent to Shnongpdeng; check into river-facing cottage.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 3</span><span class="day-name">Transparent Glass Boating & Krang Suri Turquoise Pool</span></div>
+          <span class="day-meta-tag">Monday, Nov 30, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🛶 10:30 – 12:30 PM</span><span class="step-text">Gentle wooden boat ride on transparent waters with lifejackets for child & family.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🌊 02:00 – 04:30 PM</span><span class="step-text">Krang Suri paved 15-minute gentle stroll; safe supervised pool edge swim.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 4</span><span class="day-name">Clean Village Mawlynnong & Flat Riwai Living Root Bridge</span></div>
+          <span class="day-meta-tag">Tuesday, Dec 1, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🌿 10:00 – 12:30 PM</span><span class="step-text">Flower-lined village walk in Mawlynnong; 10-minute flat paved walk to Riwai Root Bridge (NO 3,500 stairs!).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🚗 01:30 – 04:00 PM</span><span class="step-text">Scenic drive to Cherrapunji; roadside view of Seven Sisters Falls.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 5</span><span class="day-name">Nohkalikai Platform, Orange Roots Pure-Veg & Wei Sawdong Upper View</span></div>
+          <span class="day-meta-tag">Wednesday, Dec 2, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">👁️ 09:30 – 12:00 PM</span><span class="step-text">Nohkalikai Falls: 50m flat paved walk from car to panoramic railing.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🥗 12:30 – 02:00 PM</span><span class="step-text">Famous pure-veg feast at Orange Roots (fresh dosas, idlis, hot thalis).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🌊 02:30 – 04:30 PM</span><span class="step-text">Wei Sawdong upper platform view (bypasses slippery bamboo ladder).</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 6</span><span class="day-name">Canyon Bridge Overlook & Ancient Moss Forest Walk</span></div>
+          <span class="day-meta-tag">Thursday, Dec 3, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🌉 10:30 – 11:30 AM</span><span class="step-text">Mawkdok Dympep Canyon bridge overlook (zero walking).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🌲 12:30 – 02:30 PM</span><span class="step-text">Mawphlang Sacred Forest flat guided walk under ancient oak trees.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏨 Evening</span><span class="step-text">Return to Shillong; Police Bazar souvenir shopping (organic turmeric & honey).</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 7</span><span class="day-name">Nongjrong Sunrise Viewpoint & Shillong Pine Lake Leisure</span></div>
+          <span class="day-meta-tag">Friday, Dec 4, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">☁️ 05:45 – 08:00 AM</span><span class="step-text">Vehicle drives directly to Nongjrong top ridge for sunrise over sea of clouds (zero hiking).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">☕ 02:30 – 04:30 PM</span><span class="step-text">Relaxed family stroll at Ward's Lake botanical gardens & tea at Dylan's Cafe.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 8</span><span class="day-name">Lakeside Lunch, Highway Descent & Evening Flight Home</span></div>
+          <span class="day-meta-tag">Saturday, Dec 5, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🍽️ 11:30 – 01:30 PM</span><span class="step-text">Lakeside North Indian lunch at Orchid Lake Resort (Umiam Lake).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🚗 02:00 – 05:00 PM</span><span class="step-text">Smooth 4-lane NH6 highway descent to Guwahati Airport.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">✈️ 07:00 PM</span><span class="step-text">Airport drop for confirmed 21:05 direct flight to Delhi.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- VIEW 3: ACTIVE ADVENTURE & TREKKER CIRCUIT -->
+    <div id="itinerary-view-trekker" class="itinerary-persona-container" style="display: none;">
+      
+      <div class="circuit-heading">
+        <div>
+          <h2>🥾 Active Adventure & Trekker Circuit (8 Days)</h2>
+          <p>Designed for energetic hikers: 3,500-step Double Decker root bridge, Rainbow Falls, David Scott trail & deep cave crawls</p>
+        </div>
+      </div>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 1</span><span class="day-name">Arrival & Umiam Island Kayak Scramble</span></div>
+          <span class="day-meta-tag">Saturday, Nov 28, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🛶 02:30 – 04:30 PM</span><span class="step-text">Rent open-water kayaks at Umiam Lake; paddle to the uninhabited pine island.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 2</span><span class="day-name">Laitlum 3,000-Step Rasong Gorge Descent</span></div>
+          <span class="day-meta-tag">Sunday, Nov 29, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🥾 09:30 – 01:30 PM</span><span class="step-text">Descend the 1,200 steep stone steps zigzagging down into the 3,000-ft Rasong gorge; hike back up the sheer canyon face.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 3</span><span class="day-name">Phe Phe 2-Tier Cliff Scramble & Umngot Cliff Jumping</span></div>
+          <span class="day-meta-tag">Monday, Nov 30, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🧗 11:30 – 02:00 PM</span><span class="step-text">Phe Phe Falls: River kayak crossing + steep unpaved 250-cliff descent down into the hidden two-tiered sapphire plunge basin.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏊 03:30 – 05:00 PM</span><span class="step-text">Cliff jumping and wild swimming from the suspension bridge boulders at Shnongpdeng.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 4</span><span class="day-name">The 3,500-Step Nongriat Double Decker Trek (Overnight at Root Bridge)</span></div>
+          <span class="day-meta-tag">Tuesday, Dec 1, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🥾 07:30 – 01:30 PM</span><span class="step-text">Drive to Tyrna village base; descend 3,500 steep stone stairs through deep jungle into the Nongriat valley gorge. Cross high wire suspension bridges.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🌉 02:00 – 04:30 PM</span><span class="step-text">Explore the ancient Double Decker Living Root Bridge; hike further up the gorge to Rainbow Falls azure pool. Stay overnight in rustic Nongriat village homestay.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 5</span><span class="day-name">Nongriat Stair Ascent & Wei Sawdong Bamboo Ladder Climb</span></div>
+          <span class="day-meta-tag">Wednesday, Dec 2, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🧗 06:30 – 10:30 AM</span><span class="step-text">Grueling 3,500-step ascent back up from Nongriat valley to Tyrna village road head.</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🪜 02:00 – 04:30 PM</span><span class="step-text">Wei Sawdong: Descend the makeshift vertical bamboo ladders and tree roots to swim in the lower 3rd emerald lagoon tier.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 6</span><span class="day-name">David Scott Historical 16-km Mountain Trail Trek</span></div>
+          <span class="day-meta-tag">Thursday, Dec 3, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🥾 08:30 – 03:00 PM</span><span class="step-text">Full 16-km historical British horse trail from Mawphlang to Lad Mawphlang. River crossing, natural stone tombs, hanging bridges, and remote Khasi valley trails.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 7</span><span class="day-name">Nongjrong Sunrise Ridge & Laitkor Peak</span></div>
+          <span class="day-meta-tag">Friday, Dec 4, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">☁️ 05:45 – 08:30 AM</span><span class="step-text">Nongjrong cloud sea sunrise; ridge scramble along eastern cliffs.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 8</span><span class="day-name">Highway Descent & Return Flight</span></div>
+          <span class="day-meta-tag">Saturday, Dec 5, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">✈️ 07:00 PM</span><span class="step-text">Guwahati airport check-in for 21:05 flight to Delhi.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- VIEW 4: SMART BUDGET & BACKPACKER EDITION -->
+    <div id="itinerary-view-budget" class="itinerary-persona-container" style="display: none;">
+      
+      <div class="circuit-heading">
+        <div>
+          <h2>🎒 Smart Budget & Backpacker Edition (8 Days)</h2>
+          <p>Curated for solo & duo travelers: Shared Tata Sumos, local village homestays, walking trails & total ground cost under ₹18,000</p>
+        </div>
+      </div>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 1</span><span class="day-name">Shared Sumo GAU to Shillong & Police Bazar Hostel</span></div>
+          <span class="day-meta-tag">Saturday, Nov 28, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 10:30 AM</span><span class="step-text">Take shared airport taxi to Khanapara (₹250), then shared Tata Sumo to Shillong Bara Bazar (₹150/seat).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏨 Stay</span><span class="step-text">Backpacker hostel / budget guesthouse in Police Bazar (~₹800–₹1,200/bed).</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 2</span><span class="day-name">Shared Sumo to Dawki & Shnongpdeng Riverside Camping</span></div>
+          <span class="day-meta-tag">Sunday, Nov 29, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 09:00 AM</span><span class="step-text">Board morning shared Sumo from Anjalee Cinema Stand to Dawki border (₹150). Shared auto to Shnongpdeng (₹50).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">⛺ Stay</span><span class="step-text">Riverside beach tent / local bamboo homestay at Shnongpdeng (~₹700–₹1,000/night with campfire).</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 3</span><span class="day-name">Shared Boating & Local Shared Sumo to Krang Suri</span></div>
+          <span class="day-meta-tag">Monday, Nov 30, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🛶 10:30 AM</span><span class="step-text">Shared wooden boat ride on transparent river (₹250/person split 4 ways).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 01:00 PM</span><span class="step-text">Shared local cab to Amlarem & Krang Suri waterfall pool. Return to Shnongpdeng.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 4</span><span class="day-name">Shared Sumo to Cherrapunji via Mawlynnong</span></div>
+          <span class="day-meta-tag">Tuesday, Dec 1, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 Morning</span><span class="step-text">Shared cab to Mawlynnong (₹100). Visit Riwai root bridge. Connect via shared cab to Cherrapunji (Sohra).</span></div>
+              <div class="timeline-step-item"><span class="step-time-badge">🏨 Stay</span><span class="step-text">Budget homestay in Sohra (By The Way Guesthouse / D-Cloud ~₹900–₹1,200/night).</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 5</span><span class="day-name">Sohra Waterfalls on Hired Scooter / Shared Cabs</span></div>
+          <span class="day-meta-tag">Wednesday, Dec 2, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🛵 All Day</span><span class="step-text">Rent a scooter in Sohra (₹600/day) or hire point-to-point local maruti cabs to Nohkalikai and Wei Sawdong.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 6</span><span class="day-name">Shared Sumo to Shillong & Street Food</span></div>
+          <span class="day-meta-tag">Thursday, Dec 3, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 01:00 PM</span><span class="step-text">Catch shared Sumo from Sohra stand to Shillong Bara Bazar (₹120/seat). Evening street food in Police Bazar.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 7</span><span class="day-name">Shillong City Walk, Ward’s Lake & Cafe</span></div>
+          <span class="day-meta-tag">Friday, Dec 4, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚶 Leisure</span><span class="step-text">Walk to Ward's Lake (₹20 entry); explore local cafes and markets on foot.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header-strip">
+          <div class="day-badge-title"><span class="day-number-pill">Day 8</span><span class="day-name">Shared Sumo to Guwahati Airport & Night Flight</span></div>
+          <span class="day-meta-tag">Saturday, Dec 5, 2026</span>
+        </div>
+        <div class="day-grid">
+          <div class="day-details">
+            <div class="timeline-steps-box">
+              <div class="timeline-step-item"><span class="step-time-badge">🚐 01:30 PM</span><span class="step-text">Board shared Wizzride / Sumo directly from Shillong to Guwahati Airport terminal (₹500/seat). Check-in for 21:05 flight.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
 <!-- Verified Door-to-Door Budget Section -->
     
     <!-- Explorer Atlas & Glossary Section -->
@@ -3525,22 +3923,31 @@
     }
   
     // Persona Switcher Logic
+    // Multi-Persona Itinerary Swapper
     function setExpeditionPersona(mode) {
       document.querySelectorAll('.persona-tab-btn').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById('btn-persona-' + mode);
       if (activeBtn) activeBtn.classList.add('active');
 
+      // Hide all 4 itinerary containers
+      document.querySelectorAll('.itinerary-persona-container').forEach(c => c.style.display = 'none');
+
+      // Show selected itinerary container
+      const targetView = document.getElementById('itinerary-view-' + mode);
+      if (targetView) targetView.style.display = 'block';
+
+      // Update context banner
       const banner = document.getElementById('personaBanner');
       if (!banner) return;
 
       if (mode === 'photo') {
-        banner.innerHTML = '<strong>📷 Active Mode: Photography & Drone Cinematography Expedition.</strong> Prioritizing high-solar overhead sun for water transparency at Dawki (10:30–13:15), dawn cloud oceans at Nongjrong (05:45–08:30), 2.5–3.0 hour deep shoot blocks per primary sight, and sensible 3★ family rooms with hot water and heaters.';
+        banner.innerHTML = '<strong>📷 Active View: Photography & Drone Cinematography Expedition.</strong> Engineered strictly around solar elevation physics: high overhead sun for water transparency at Dawki (10:30–13:15), dawn cloud ocean at Nongjrong (05:45–08:30), 2.5–3.0 hour deep shoot blocks per primary sight, and sensible 3★ family rooms with reliable geysers and heaters.';
       } else if (mode === 'family') {
-        banner.innerHTML = '<strong>👨‍👩‍👧 Active Mode: Relaxed Family Leisure Edition.</strong> Zero multi-thousand stair treks; level paved strolls at Riwai Living Root Bridge (10 min flat) and Wei Sawdong upper viewpoint. Daily sit-down North Indian pure-veg dining at Orange Roots & City Hut Dhaba, and early resort evenings.';
+        banner.innerHTML = '<strong>👨‍👩‍👧 Active View: Relaxed Family Leisure Edition.</strong> Zero multi-thousand stair treks; level paved strolls at Riwai Living Root Bridge (10 min flat) and Wei Sawdong upper viewpoint. Daily sit-down North Indian pure-veg dining at Orange Roots & City Hut Dhaba, and early resort evenings.';
       } else if (mode === 'trekker') {
-        banner.innerHTML = '<strong>🥾 Active Mode: Active Adventure & Trekker Circuit.</strong> Unlocks the full physical challenges: 3,500 steep stone steps down to the Nongriat Double Decker Living Root Bridge & Rainbow Falls pool, David Scott 16-km ancient horse-trail trek, and deep canyon scrambling at Phe Phe Falls.';
+        banner.innerHTML = '<strong>🥾 Active View: Active Adventure & Trekker Circuit.</strong> Unlocks the full physical challenges: 3,500 steep stone steps down to the Nongriat Double Decker Living Root Bridge & Rainbow Falls pool, David Scott 16-km ancient horse-trail trek, and deep canyon scrambling at Phe Phe Falls.';
       } else if (mode === 'budget') {
-        banner.innerHTML = '<strong>🎒 Active Mode: Smart Budget & Backpacker Edition.</strong> Swaps the dedicated private SUV for shared Tata Sumos from Shillong Bara Bazar, utilizes cozy local village homestays in Mawlynnong and Shnongpdeng (~₹2,000/nt), lowering door-to-door cost by ~45%.';
+        banner.innerHTML = '<strong>🎒 Active View: Smart Budget & Backpacker Edition.</strong> Swaps the dedicated private SUV for shared Tata Sumos from Shillong Bara Bazar, utilizes cozy local village homestays in Mawlynnong and Shnongpdeng (~₹1,000/nt), lowering door-to-door cost under ₹18,000.';
       }
     }
 
